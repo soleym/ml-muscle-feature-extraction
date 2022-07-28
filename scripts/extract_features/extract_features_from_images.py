@@ -9,7 +9,7 @@ import sys
 import os
 
 # Insert path to pybf library and utility functions to system path
-path_to_lib_and_utils ='../../'
+path_to_lib_and_utils = '../../'
 sys.path.insert(0, path_to_lib_and_utils)
 
 from pybf.pybf.io_interfaces import ImageLoader
@@ -54,10 +54,10 @@ def extract_features_from_images(path_to_dataset, path_to_save_results='../../re
     pos_fascicle = []
 
     # Initate image loader
-    img_loader_obj = ImageLoader(image_dataset_path)
+    img_loader_obj = ImageLoader(path_to_dataset)
 
     # Create folder for frames if needed
-    if save_images and (not os.path.exists(path_to_save_results)):
+    if save_images and (not os.path.exists(path_to_save_results  + '/frames')):
         # Create a new directory because it does not exist 
         os.makedirs(path_to_save_results + '/frames')
 

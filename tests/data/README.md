@@ -1,14 +1,17 @@
-# Test images 
+# Test datasets 
 
 ## Description
 
-Provided image dataset `./image_dataset.hdf5` contain two ultrasound images of gastrocnemius muscle required to run the test.
+Provided ultrasound RF dataset `./rf_dataset.hdf5` contain two raw ultrasound signal backscattered from gastrocnemius muscle.
+This data is required to run the feature extraction test.
 
-The dataset uses the format specified in the [PyBF](https://github.com/Sergio5714/pybf) repository.
+Provided image dataset `./image_dataset.hdf5` contain two ultrasound images of gastrocnemius muscle required to run the image annotation test.
+
+The datasets use the format specified in the [PyBF](https://github.com/Sergio5714/pybf) repository.
 Please explore the [README](https://github.com/Sergio5714/pybf/blob/master/tests/data/README.md) under `./tests/data/` directory of the original repository. 
 
 ## License
-The images  are licensed under a [Creative Commons Attribution No Derivatives 4.0 International
+The sample datasets are licensed under a [Creative Commons Attribution No Derivatives 4.0 International
 License][cc-by-nd].
 
 [![CC BY ND 4.0][cc-by-nd-shield]][cc-by-nd]
