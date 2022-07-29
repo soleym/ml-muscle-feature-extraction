@@ -11,34 +11,21 @@ from scipy import signal
 import sys
 
 # Insert path to pybf library to system path
-path_to_lib ='/home/sem21f26'
-sys.path.insert(0, path_to_lib)
+path_to_lib_and_utils ='../../../'
+sys.path.insert(0, path_to_lib_and_utils)
 
 from pybf.pybf.io_interfaces import DataLoader
-
-# Insert path to utilities to system path
-path_to_util ='../../../'
-sys.path.insert(1, path_to_util)
 
 from utils.ANN_utils import CNNModel, \
                             train_conv_net, standardize, \
                             print_scores, plot_loss, plot_prediction
 
-# Stored on 'elendil' machine
-# Session2 run 2 (dataset 1)
-#dataset_path =  '/usr/scratch2/elendil/vsergei/Measurements-EPFL-201912_processed/20191218 session2/20191218_run_2_invivo_dynamic/1_1_full_aperture_pw_0/rf_dataset.hdf5'
-# Session 1 run 3 (dataset 2)
-#dataset_path =  '/usr/scratch2/elendil/vsergei/Measurements-EPFL-201912_processed/20191218 session1/20191218_run_3_invivo_dynamic/1_1_full_aperture_pw_0/rf_dataset.hdf5'
-# Session 1 run 5 (dataset 3)
-dataset_path =  '/usr/scratch2/elendil/vsergei/Measurements-EPFL-201912_processed/20191218 session1/20191218_run_5_invivo_dynamic/1_1_full_aperture_pw_0/rf_dataset.hdf5'
-
-pennation_angles = np.loadtxt('../../../results/pennation_angle.csv', delimiter=',')
-
-#pennation_angles = np.loadtxt('/home/sem21f26/visualize/ALT/new_method_results/sess2_run2_pw0/pennation_angle.csv', delimiter=',')
-#pennation_angles = np.loadtxt('/home/sem21f26/visualize/ALT/new_method_results/sess1_run3_pw0/pennation_angle.csv', delimiter=',')
-#pennation_angles = np.loadtxt('/home/sem21f26/visualize/ALT/new_method_results/sess1_run5_pw0/pennation_angle.csv', delimiter=',')
-
 if __name__ == '__main__':
+    
+    dataset_path = '../../../tests/data/rf_dataset.hdf5'
+    pennation_angles = np.loadtxt('../../../results/pennation_angle.csv', delimiter=',')
+
+    
     start = time.time()
 
     b, a = signal.butter(8, 0.04)
