@@ -18,7 +18,7 @@ from utils.ANN_utils import cross_val_xgb, print_crossval_scores
 
 if __name__ == "__main__":
     
-    dataset_path = '../../tests/rf_dataset.hdf5'
+    dataset_path = '../../tests/data/rf_dataset.hdf5'
     pennation_angles = np.loadtxt('../../results/pennation_angle.csv', delimiter=',')
     
     torch.set_num_threads(8)

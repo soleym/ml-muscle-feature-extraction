@@ -100,10 +100,7 @@ def train_ae_xgb(feats, penns, num_epochs = 7, lr = 0.0005, wd = 0.0003, n_estim
 
 if __name__ == "__main__":
     
-    #dataset_path = '../../tests/data/rf_dataset.hdf5'
-    
-    dataset_path = '/scratch/sem21f26/session2_run2_pw0/rf_dataset.hdf5'
-    
+    dataset_path = '../../tests/data/rf_dataset.hdf5'
     pennation_angles = np.loadtxt('../../results/pennation_angle.csv', delimiter=',')
     
     torch.set_num_threads(8)
