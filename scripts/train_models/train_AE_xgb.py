@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn
 import xgboost as xgb
 from scipy import signal
-import pickle
+import joblib
 
 import time
 from time import asctime
@@ -67,9 +67,8 @@ def train_ae_xgb(feats, penns, num_epochs = 7, lr = 0.0005, wd = 0.0003, n_estim
     forest = xgb.XGBRegressor(n_estimators=n_estimators, random_state=0, n_jobs = -1, verbosity = 1)
 
     forest.fit(compressed, penns)
-
-    importances = forest.feature_importances_
     
+    importances = forest.feature_importances_
     sum_importances = 0
     num_feats = 0
     while sum_importances < total_importance:
@@ -91,15 +90,18 @@ def train_ae_xgb(feats, penns, num_epochs = 7, lr = 0.0005, wd = 0.0003, n_estim
         ae_save = model_save_path + 'ae_model.pth' 
         torch.save(model.state_dict(), ae_save)
         
-        forest_save = model_save_path + 'ae_forest.dat'
-        pickle.dump(forest, open(forest_save, 'wb'))
+        forest_save = model_save_path + 'ae_forest.joblib.dat'
+        joblib.dump(forest, forest_save)
         
+        reg_save = model_save_path + 'ae_regressor.joblib.dat'
+        joblib.dump(reg, reg_save)
+
         print(asctime())
     
 
 
 if __name__ == "__main__":
-    
+
     dataset_path = '../../tests/data/rf_dataset.hdf5'
     pennation_angles = np.loadtxt('../../results/pennation_angle.csv', delimiter=',')
     

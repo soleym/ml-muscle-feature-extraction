@@ -1,5 +1,5 @@
 import numpy as np
-import pickle 
+import joblib
 
 from time import asctime
 
@@ -47,8 +47,11 @@ def train_handcrafted_xgb(feats, penns, n_estimators = 100, total_importance = 0
         print(asctime())
         print('Saving the model to: ', model_save_path)
         
-        forest_save = model_save_path + 'handcrafted_forest.dat'
-        pickle.dump(forest, open(forest_save, 'wb'))
+        forest_save = model_save_path + 'handcrafted_forest.joblib.dat'
+        joblib.dump(forest, forest_save)
+
+        reg_save = model_save_path + 'handcrafted_regressor.joblib.dat'
+        joblib.dump(reg, reg_save)
         
         print(asctime())
 
