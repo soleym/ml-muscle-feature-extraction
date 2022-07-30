@@ -10,8 +10,6 @@ import csv
 
 from scipy import signal
 
-
-# Insert path to repository, to import utility functions
 path_to_utils ='../../'
 sys.path.insert(0, path_to_utils)
 from utils.pca_utils import print_crossval_scores, compute_scores
@@ -93,37 +91,38 @@ def cross_val_xgb(feats, penns, cv=4, n_estimators = 100, total_importance = 0.9
     
     return all_rmse, all_max_error, all_mse, all_mae, all_r2
 
-
-print(asctime())
-
-# Get the hand-crafted features
-with open('../../results/ds_features_prepped_w8.csv', newline='') as csvfile: 
-    feats = list(csv.reader(csvfile))
-
-print(asctime())
-
-feats = np.array(feats)
-print(feats.shape)
-
-# Get the ground truth pennation angles
-pennation_angles = np.loadtxt('../../results/pennation_angle.csv', delimiter=',')
-
-penns = pennation_angles
-print(penns.shape)
-
-print('Crossvalidate...')
-print(asctime())
-print()
-rmse, max_err, mse, mae, r2 = cross_val_xgb(feats, penns, 
-                                            cv=5, 
-                                            n_estimators = 100, 
-                                            total_importance = 0.95)
-print(asctime())
-print()
-
-
-print_crossval_scores(rmse, mse, max_err, mae, r2)
-
+if __name__ == '__main__':
+    
+    print(asctime())
+    
+    # Get the hand-crafted features
+    with open('../../results/ds_features_prepped_w8.csv', newline='') as csvfile: 
+        feats = list(csv.reader(csvfile))
+    
+    print(asctime())
+    
+    feats = np.array(feats)
+    print(feats.shape)
+    
+    # Get the ground truth pennation angles
+    pennation_angles = np.loadtxt('../../results/pennation_angle.csv', delimiter=',')
+    
+    penns = pennation_angles
+    print(penns.shape)
+    
+    print('Crossvalidate...')
+    print(asctime())
+    print()
+    rmse, max_err, mse, mae, r2 = cross_val_xgb(feats, penns, 
+                                                cv=5, 
+                                                n_estimators = 100, 
+                                                total_importance = 0.95)
+    print(asctime())
+    print()
+    
+    
+    print_crossval_scores(rmse, mse, max_err, mae, r2)
+    
 
 
 

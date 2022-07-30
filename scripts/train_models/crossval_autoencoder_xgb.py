@@ -8,40 +8,19 @@ from time import asctime
 import sys
 
 # Insert path to pybf library to system path
-path_to_lib ='/home/sem21f26'
-sys.path.insert(0, path_to_lib)
+path_to_lib_and_utils ='../../'
+sys.path.insert(0, path_to_lib_and_utils)
 
 from pybf.pybf.io_interfaces import DataLoader
 
-# Insert path to utilities to system path
-path_to_util ='../../'
-sys.path.insert(1, path_to_util)
-
-
 from utils.ANN_utils import cross_val_xgb, print_crossval_scores
-
-# Stored on 'elendil' machine
-# Session2 run 2 (dataset 1)
-#dataset_path =  '/usr/scratch2/elendil/vsergei/Measurements-EPFL-201912_processed/20191218 session2/20191218_run_2_invivo_dynamic/1_1_full_aperture_pw_0/rf_dataset.hdf5'
-# Session 1 run 3 (dataset 2)
-#dataset_path =  '/usr/scratch2/elendil/vsergei/Measurements-EPFL-201912_processed/20191218 session1/20191218_run_3_invivo_dynamic/1_1_full_aperture_pw_0/rf_dataset.hdf5'
-# Session 1 run 5 (dataset 3)
-#dataset_path =  '/usr/scratch2/elendil/vsergei/Measurements-EPFL-201912_processed/20191218 session1/20191218_run_5_invivo_dynamic/1_1_full_aperture_pw_0/rf_dataset.hdf5'
-
-# Stored on 'ojos3' machine
-#dataset_path =  '/ojos3/scratch/session2_run2_pw0/rf_dataset.hdf5' # Dataset 1
-#dataset_path =  '/ojos3/scratch/session1_run3_pw0/rf_dataset.hdf5' # Dataset 2
-dataset_path =  '/ojos3/scratch/session1_run5_pw0/rf_dataset.hdf5' # Dataset 3
-
-pennation_angles = np.loadtxt('../../results/pennation_angle.csv', delimiter=',')
-
-#pennation_angles = np.loadtxt('../../results/sess2_run2_pw0/pennation_angle.csv', delimiter=',')
-#pennation_angles = np.loadtxt('../../results/sess1_run3_pw0/pennation_angle.csv', delimiter=',')
-#pennation_angles = np.loadtxt('../../results/sess1_run5_pw0/pennation_angle.csv', delimiter=',')
 
 
 if __name__ == "__main__":
     
+    # Path to a sample dataset. Here, you can provide your own dataset.
+    dataset_path = '../../tests/data/rf_dataset.hdf5'
+    pennation_angles = np.loadtxt('../../results/pennation_angle.csv', delimiter=',')
     
     torch.set_num_threads(8)
     torch.set_num_interop_threads(8)
