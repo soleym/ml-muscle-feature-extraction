@@ -228,7 +228,9 @@ def extract_features_from_images(path_to_dataset, path_to_save_results='../../re
             weighted_pos_deep_apo = int(np.mean(pos1)) #int(weight_angle(pos1, weights1))
         else:
             weighted_pos_deep_apo = int(0.5 * np.mean(pos1) + 0.5* weighted_pos_deep_apo)
-        
+
+        pos_deep.append(weighted_pos_deep_apo)        
+
         # Weight fascicles
         pos3, ang3, weights3 = np.array(pos3),np.array(ang3),np.array(weights3)
         weighted_ang_fas = weight_angle(ang3, weights3)
@@ -279,7 +281,7 @@ def extract_features_from_images(path_to_dataset, path_to_save_results='../../re
     np.savetxt(path_to_save_results + '/pos_deep.csv', deep, delimiter=',')
     np.savetxt(path_to_save_results + '/pos_fas.csv', pos_fascicle, delimiter=',')
 
-    return
+    return th1, th2, penn, deep, pos_fascicle, point_deep_apo, point_fas
 
 
 if __name__ == "__main__":
