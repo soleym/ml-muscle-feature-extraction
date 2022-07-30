@@ -174,7 +174,7 @@ def plot_double_results(image, theta_1, theta_2, penn_ANN, weighted_pos_fas, poi
 
     cv.rectangle(img_rgb, (5,5), (220,100), (0,0,0), -1)
     draw_text_on_image(img_rgb, 'Penn. angle (ALT): %.2f' % (theta_1 + theta_2), (10,50), (0,255,0)) 
-    draw_text_on_image(img_rgb, 'Penn. angle (ANN): %.2f' % penn_ANN, (10,80), (0,0,255)) 
+    draw_text_on_image(img_rgb, 'Penn. angle (ML): %.2f' % penn_ANN, (10,80), (0,0,255)) 
     draw_text_on_image(img_rgb, 'Frame index: ' + str(frame_index), (10,20), (200,200,200))
     
     return img_rgb
