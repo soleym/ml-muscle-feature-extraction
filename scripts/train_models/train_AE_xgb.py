@@ -101,7 +101,7 @@ def train_ae_xgb(feats, penns, num_epochs = 7, lr = 0.0005, wd = 0.0003, n_estim
 
 
 if __name__ == "__main__":
-
+    # Path to a sample dataset. Here, you can provide your own dataset
     dataset_path = '../../tests/data/rf_dataset.hdf5'
     pennation_angles = np.loadtxt('../../results/pennation_angle.csv', delimiter=',')
     

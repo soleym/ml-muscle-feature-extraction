@@ -21,7 +21,7 @@ from utils.ANN_utils import CNNModel, \
                             print_scores, plot_loss, plot_prediction
 
 if __name__ == '__main__':
-    
+    # Path to a sample dataset. Here, you can provide your own dataset   
     dataset_path = '../../../tests/data/rf_dataset.hdf5'
     pennation_angles = np.loadtxt('../../../results/pennation_angle.csv', delimiter=',')
 

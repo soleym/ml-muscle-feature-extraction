@@ -18,7 +18,7 @@ from pybf.pybf.io_interfaces import DataLoader
 from utils.ANN_utils import AutoEncoderModel, \
                             train_AE_net, standardize
 
-
+# Path to a sample dataset. Here, you can provide your own dataset
 dataset_path = dataset_path = '../../../tests/rf_dataset.hdf5'
 pennation_angles = np.loadtxt('../../../results/pennation_angle.csv', delimiter=',')
 

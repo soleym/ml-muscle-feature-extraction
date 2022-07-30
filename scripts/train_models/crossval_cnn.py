@@ -35,6 +35,7 @@ def print_crossval_scores(rmse, mse, max_err, mae, r2):
     print('r2_scores : ' +str(r2))
    
 if __name__ == "__main__": 
+    # Path to a sample dataset. Here, you can provide your own dataset
     dataset_path =  '../../tests/data/rf_dataset.hdf5'
     pennation_angles = np.loadtxt('../../results/pennation_angle.csv', delimiter=',') 
        
