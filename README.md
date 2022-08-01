@@ -1,17 +1,21 @@
-## Machine Learning for Feature Extraction from Ultrasound
+## Automatic Extraction of Muscle Fascicle Pennation Angle from Raw Ultrasound Data
 
 # Introduction
 
-This repository contains the code supporting the paper 
-
-`Automatic Extraction of Muscle Fascicle Pennation Angle from Raw Ultrasound Data` 
-
-presented at IEEE Sensors Applications Symposium (SAS) 2022.
+This repository contains the code supporting the paper presented at *IEEE Sensors Applications Symposium (SAS) 2022*.
 
 The repository contains:
 - An automatic labeling tool to extract the pennation angle from ultrasound images
 - Implementations of four machine learning methods to predict the pennation angle from raw ultrasound data
 - Tests scripts
+
+A visual demonstration of the algorithm:
+- image sequence - ultrasound images of the electrically-stimulated medial gastrocnemius muscle
+- ALT (green) - pennation angle extracted by the Automatic Labelling Tool
+- ANN (red) - pennation angle extracted by the AE + XGBoost algorithm from raw ultrasound data
+- blue line - deep aponeurosis
+
+![alt text](docs/demo.gif)
 
 # Structure of the repository
 
