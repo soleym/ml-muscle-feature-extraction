@@ -1,8 +1,8 @@
-## Handcrafted Feature Extraction Test
+## Autoencoder + XGBoost Prediction Test
 
 # Introduction
 
-This test demonstrates extraction of handcrafted features from raw ultrasound RF data.
+This test demonstrates how to load a saved autoencoder + xgboost model, use it to make predictions for a sample dataset and save images with the model's prediction next to the labeling tool's automatic annotation.
 
 # Usage
 
