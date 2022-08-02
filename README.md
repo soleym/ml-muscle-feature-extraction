@@ -52,15 +52,10 @@ conda create --name muscle_env python=3.6
 ```bash
 conda activate muscle_env
 ```
-7. Then type the following command in terminal to make the script  `install_requirements.sh` executable:
+7. Then execute the command to install the packages from `pip_requirements.txt`:
 ```bash
-chmod +x install_requirements.sh
+pip install -r pip_requirements.txt
 ```
-8. Then execute the script to install the packages from `requirements.txt`:
-```bash
-./install_requirements.sh
-```
-The scripts goes through the packages listed in `requirements.txt` and tries to install them with conda. If not successful, it tries to do the same with pip.
 
 
 # Usage
